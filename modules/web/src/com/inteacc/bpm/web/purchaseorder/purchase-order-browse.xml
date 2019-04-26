@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.inteacc.bpm.web.purchaseorder.PurchaseOrderBrowse"
+        focusComponent="purchaseOrdersTable"
+        lookupComponent="purchaseOrdersTable"
+        messagesPack="com.inteacc.bpm.web.purchaseorder">
+    <dsContext>
+        <groupDatasource id="purchaseOrdersDs"
+                         class="com.inteacc.bpm.entity.PurchaseOrder"
+                         view="purchaseOrder-view">
+            <query>
+                <![CDATA[select e from bp$PurchaseOrder e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="purchaseOrdersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="purchaseOrdersTable"
+                datasource="purchaseOrdersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="purchaseOrdersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="docNo"/>
+                <column id="docDate"/>
+                <column id="description"/>
+                <column id="amount"/>
+                <column id="processState"/>
+            </columns>
+            <rows datasource="purchaseOrdersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="purchaseOrdersTable.create"/>
+                <button id="editBtn"
+                        action="purchaseOrdersTable.edit"/>
+                <button id="removeBtn"
+                        action="purchaseOrdersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

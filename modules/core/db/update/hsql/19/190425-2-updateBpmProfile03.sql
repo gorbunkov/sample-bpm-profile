@@ -1,0 +1,2 @@
+alter table BP_BPM_PROFILE add constraint FK_BP_BPM_PROFILE_ON_PROC_MODEL foreign key (PROC_MODEL_ID) references BPM_PROC_MODEL(ID);
+create index IDX_BP_BPM_PROFILE_ON_PROC_MODEL on BP_BPM_PROFILE (PROC_MODEL_ID);

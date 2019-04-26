@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.inteacc.bpm.web.bpmprofile.BpmProfileBrowse"
+        focusComponent="bpmProfilesTable"
+        lookupComponent="bpmProfilesTable"
+        messagesPack="com.inteacc.bpm.web.bpmprofile">
+    <dsContext>
+        <groupDatasource id="bpmProfilesDs"
+                         class="com.inteacc.bpm.entity.BpmProfile"
+                         view="bpmProfile-view">
+            <query>
+                <![CDATA[select e from bp$BpmProfile e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="bpmProfilesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="bpmProfilesTable"
+                datasource="bpmProfilesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="bpmProfilesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="description"/>
+                <column id="adHocUserSelection"/>
+                <column id="entityName"/>
+                <column id="procDefinition"/>
+                <column id="delegationTargetGroup"/>
+                <column id="procModel"/>
+            </columns>
+            <rows datasource="bpmProfilesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="bpmProfilesTable.create"/>
+                <button id="editBtn"
+                        action="bpmProfilesTable.edit"/>
+                <button id="removeBtn"
+                        action="bpmProfilesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

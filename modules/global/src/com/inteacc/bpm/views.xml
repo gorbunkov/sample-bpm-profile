@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.inteacc.bpm.entity.SalesOrder"
+          extends="_local"
+          name="salesOrder-view"/>
+    <view class="com.inteacc.bpm.entity.PurchaseOrder"
+          extends="_local"
+          name="purchaseOrder-view"/>
+    <view class="com.inteacc.bpm.entity.BpmProfileUser"
+          extends="_local"
+          name="bpmProfileUser-view">
+        <property name="extProcRole"
+                  view="_minimal"/>
+        <property name="user"
+                  view="_minimal"/>
+    </view>
+    <view class="com.inteacc.bpm.entity.BpmProfileTask"
+          extends="_local"
+          name="bpmProfileTask-view">
+        <property name="procTask"
+                  view="_minimal"/>
+        <property name="emailTemplate"
+                  view="_minimal"/>
+    </view>
+    <view class="com.inteacc.bpm.entity.BpmProfileRole"
+          extends="_local"
+          name="bpmProfileRole-view">
+        <property name="role"
+                  view="_minimal"/>
+        <property name="procRole"
+                  view="_minimal"/>
+    </view>
+    <view class="com.inteacc.bpm.entity.BpmProfile"
+          extends="_local"
+          name="bpmProfile-view">
+        <property name="procDefinition"
+                  view="_minimal"/>
+        <property name="bpmProfileRole"
+                  view="bpmProfileRole-view"/>
+        <property name="bpmProfileTask"
+                  view="bpmProfileTask-view"/>
+        <property name="bpmProfileUser"
+                  view="bpmProfileUser-view"/>
+        <property name="procModel"
+                  view="_minimal"/>
+    </view>
+</views>

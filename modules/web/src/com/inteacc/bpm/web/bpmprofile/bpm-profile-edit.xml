@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.inteacc.bpm.web.bpmprofile.BpmProfileEdit"
+        datasource="bpmProfileDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.inteacc.bpm.web.bpmprofile">
+    <dsContext>
+        <datasource id="bpmProfileDs"
+                    class="com.inteacc.bpm.entity.BpmProfile"
+                    view="bpmProfile-view">
+            <collectionDatasource id="bpmProfileRoleDs"
+                                  property="bpmProfileRole"/>
+            <collectionDatasource id="bpmProfileTaskDs"
+                                  property="bpmProfileTask"/>
+            <collectionDatasource id="bpmProfileUserDs"
+                                  property="bpmProfileUser"/>
+        </datasource>
+        <collectionDatasource id="procDefinitionsDs"
+                              class="com.haulmont.bpm.entity.ProcDefinition"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from bpm$ProcDefinition e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User">
+            <query>
+                <![CDATA[select e from sec$User e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="procModelsDs"
+                              class="com.inteacc.bpm.entity.ExtProcModel"
+                              view="_minimal"/>
+        <collectionDatasource id="extRolesDs"
+                              class="com.inteacc.bpm.entity.ExtRole">
+            <query>
+                <![CDATA[select e from bp$ExtRole e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="extProcRolesDs"
+                              class="com.inteacc.bpm.entity.ExtProcRole">
+            <query>
+                <![CDATA[select e from bp$ExtProcRole e
+where e.procDefinition.id = :ds$procDefinitionsDs.id]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="bpmProfileDs">
+            <column width="250px">
+                <field optionsDatasource="procModelsDs"
+                       property="procModel"/>
+                <field optionsDatasource="procDefinitionsDs"
+                       property="procDefinition"/>
+                <field property="description"/>
+                <field property="entityName"/>
+                <field property="adHocUserSelection"/>
+                <field property="delegationTargetGroup"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="bpmProfileTaskBox"
+                  caption="msg://com.inteacc.bpm.entity/BpmProfile.bpmProfileTask">
+            <table id="bpmProfileTaskTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="procTask"/>
+                    <column id="emailTemplate"/>
+                    <column id="amountFieldName"/>
+                    <column id="sendLink"/>
+                    <column id="sendDocAttachment"/>
+                    <column id="reminderDays"/>
+                    <column id="escalationDays"/>
+                </columns>
+                <rows datasource="bpmProfileTaskDs"/>
+                <buttonsPanel>
+                    <button action="bpmProfileTaskTable.create"/>
+                    <button action="bpmProfileTaskTable.edit"/>
+                    <button action="bpmProfileTaskTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <groupBox id="bpmProfileRoleBox"
+                  caption="msg://com.inteacc.bpm.entity/BpmProfile.bpmProfileRole">
+            <table id="bpmProfileRoleTable"
+                   editable="true"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"
+                            invoke="onAddRole"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="role"
+                            editable="true"
+                            optionsDatasource="extRolesDs"/>
+                    <column id="procRole"
+                            editable="true"
+                            optionsDatasource="extProcRolesDs"/>
+                    <column id="limitAmount"
+                            editable="true"/>
+                </columns>
+                <rows datasource="bpmProfileRoleDs"/>
+                <buttonsPanel>
+                    <button action="bpmProfileRoleTable.create"/>
+                    <button action="bpmProfileRoleTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <groupBox id="bpmProfileUserBox"
+                  caption="msg://com.inteacc.bpm.entity/BpmProfile.bpmProfileUser">
+            <table id="bpmProfileUserTable"
+                   editable="true"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"
+                            invoke="onAddUser"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="user"
+                            editable="true"
+                            optionsDatasource="usersDs"/>
+                    <column id="extProcRole"
+                            editable="true"
+                            optionsDatasource="extProcRolesDs"/>
+                    <column id="limitAmount"
+                            editable="true"/>
+                </columns>
+                <rows datasource="bpmProfileUserDs"/>
+                <buttonsPanel>
+                    <button action="bpmProfileUserTable.create"/>
+                    <button action="bpmProfileUserTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

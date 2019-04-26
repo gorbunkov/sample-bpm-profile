@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="bpmdemo"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.inteacc.bpm.entity.PurchaseOrder</class>
+        <class>com.inteacc.bpm.entity.SalesOrder</class>
+        <class>com.inteacc.bpm.entity.BpmProfile</class>
+        <class>com.inteacc.bpm.entity.BpmProfileUser</class>
+        <class>com.inteacc.bpm.entity.EmailTemplate</class>
+        <class>com.inteacc.bpm.entity.ExtProcRole</class>
+        <class>com.inteacc.bpm.entity.ExtRole</class>
+        <class>com.inteacc.bpm.entity.BpmProfileRole</class>
+        <class>com.inteacc.bpm.entity.ExtProcTask</class>
+        <class>com.inteacc.bpm.entity.BpmProfileTask</class>
+        <class>com.inteacc.bpm.entity.ExtProcModel</class>
+    </persistence-unit>
+</persistence>

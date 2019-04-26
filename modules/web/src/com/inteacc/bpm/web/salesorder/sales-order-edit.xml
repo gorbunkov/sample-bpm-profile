@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.inteacc.bpm.web.salesorder.SalesOrderEdit"
+        datasource="salesOrderDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.inteacc.bpm.web.salesorder">
+    <dsContext>
+        <datasource id="salesOrderDs"
+                    class="com.inteacc.bpm.entity.SalesOrder"
+                    view="salesOrder-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="salesOrderDs">
+            <column width="250px">
+                <field property="docNo"/>
+                <field property="docDate"/>
+                <field property="customer"/>
+                <field property="amount"/>
+                <field property="processState"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

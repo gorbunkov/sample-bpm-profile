@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/Downloads/TestProject" value="PREVIEW" />
+        <entry key="C:/Work/bpm/bproc" value="PREVIEW" />
+        <entry key="C:/Work/cuba/cuba-master" value="PREVIEW" />
+        <entry key="C:/Work/documentation/documentation-master" value="PREVIEW" />
+        <entry key="C:/Work/francis/fop-master" value="PREVIEW" />
+        <entry key="C:/Work/platform/cuba-master" value="PREVIEW" />
+        <entry key="C:/Work/platform/master/all" value="PREVIEW" />
+        <entry key="C:/Work/refapp/refapp-master" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../avi/CrmApp" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../avi2/CrmApp" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bpm-compatibility" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bpm-migration-sample" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bproc" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bproc-camunda" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bproc-doc" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bproc-documentation" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bproc-modeler" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../bpm/bproc-refapp" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../components/restapi" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../cuba" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../cuba-gradle-plugin" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../refapp" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../samples/bpm-samples" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../samples/emailtemplate-addon-demo" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../samples/rzd/pm" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../studio-intellij" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../temp/TestProject" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../temp/mt3" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../temp/testMariadb" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1928" />
+    <option name="y" value="-8" />
+    <option name="width" value="1867" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="CUBA Application" type="cubaTomcatConfiguration" factoryName="CUBA Application" jdk="#JAVA_HOME">
+      <predefined_log_file enabled="true" id="catalina" />
+      <method v="2">
+        <option name="CheckDataBaseTaskProvider" enabled="true" />
+        <option name="DeployTomcatTaskProvider" enabled="true" />
+        <option name="CopyDbDriversTaskProvider" enabled="true" />
+        <option name="DeployCubaApplicationTaskProvider" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="bp$SalesOrder.browse"
+            template="com/inteacc/bpm/web/salesorder/sales-order-browse.xml"/>
+    <screen id="bp$SalesOrder.edit"
+            template="com/inteacc/bpm/web/salesorder/sales-order-edit.xml"/>
+    <screen id="bp$PurchaseOrder.browse"
+            template="com/inteacc/bpm/web/purchaseorder/purchase-order-browse.xml"/>
+    <screen id="bp$PurchaseOrder.edit"
+            template="com/inteacc/bpm/web/purchaseorder/purchase-order-edit.xml"/>
+    <screen id="bp$BpmProfile.browse"
+            template="com/inteacc/bpm/web/bpmprofile/bpm-profile-browse.xml"/>
+    <screen id="bp$BpmProfile.edit"
+            template="com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml"/>
+    <screen id="mainWindow"
+            template="com/inteacc/bpm/web/screens/ext-mainwindow.xml"/>
+</screen-config>
