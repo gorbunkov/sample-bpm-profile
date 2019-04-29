@@ -44,6 +44,9 @@ public class ProcessNotificationServiceBean implements ProcessNotificationServic
     @Inject
     protected Logger log;
 
+    @Inject
+    protected GlobalConfig globalConfig;
+
     @Override
     public void sendNotificationByBpmProfile(String entityName, UUID entityId, String processTaskKey, UUID userId) {
         List<BpmProfileNotification> notifications = dataManager.load(BpmProfileNotification.class)
@@ -74,17 +77,23 @@ public class ProcessNotificationServiceBean implements ProcessNotificationServic
                 Map<String, Object> emailTemplateParams = new HashMap<>();
                 emailTemplateParams.put("entity", entity);
                 emailTemplateParams.put("user", user);
+                emailTemplateParams.put("editorLink", buildEditorLink(entityName, entityId));
                 ExtendedEmailInfo emailInfo = null;
                 try {
-                    EmailTemplate modifiedEmailTemplate = emailTemplatesAPI.buildFromTemplate(emailTemplate.getCode())
+                    emailTemplatesAPI.buildFromTemplate(emailTemplate.getCode())
                             .addTo(user.getEmail())
-                            .build();
-                    emailInfo = emailTemplatesAPI.generateEmail(modifiedEmailTemplate, emailTemplateParams);
-                    emailService.sendEmailAsync(emailInfo);
+                            .setBodyParameters(emailTemplateParams)
+                            .sendEmailAsync();
+//                    emailInfo = emailTemplatesAPI.generateEmail(modifiedEmailTemplate, emailTemplateParams);
+//                    emailService.sendEmailAsync(emailInfo);
                 } catch (TemplateNotFoundException | ReportParameterTypeChangedException e) {
                     log.error("Error on sending the process notification", e);
                 }
             }
         }
+    }
+
+    private String buildEditorLink(String entityName, UUID entityId) {
+        return globalConfig.getWebAppUrl() + "/open?screen=" + entityName + ".edit&item=" + entityName + "-" + entityId;
     }
 }

@@ -11,6 +11,7 @@ public interface ProcessNotificationService {
      * <ul>
      *     <li>entity - the entity. It will be reloaded with the {@code process-notification} or {@code _local} view</li>
      *     <li>user - the user object loaded with the {@code _local} view</li>
+     *     <li>editorLink - a URL for the entity editor</li>
      * </ul>
      *
      * After the email is built, it will be put to the queue for asynchronous email sending.

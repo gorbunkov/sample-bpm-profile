@@ -16,4 +16,6 @@
 
 In the email template that is used automatically from the process, you may use the `user` parameter that will contain a user loaded with the _local view.
 
-Also you may use the `entity` parameter. This entity is loaded with the `process-notification` view. For example, if you start the process for the `SalesOrder` entity, then the `entity` parameter will contain a SalesOrder instance loaded with the `process-notification` view (or just `_local` if there is no `process-notification` view). For example, you may user the `${entity.docNo}` expression to print the order number in the email body. 
+Also you may use the `entity` parameter. This entity is loaded with the `process-notification` view. For example, if you start the process for the `SalesOrder` entity, then the `entity` parameter will contain a SalesOrder instance loaded with the `process-notification` view (or just `_local` if there is no `process-notification` view). For example, you may user the `${entity.docNo}` expression to print the order number in the email body.
+
+The `editorLink` parameter will hold a URL for entity editor. 
