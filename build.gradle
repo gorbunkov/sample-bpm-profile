@@ -96,6 +96,7 @@ configure(coreModule) {
 
     dependencies {
         compile(globalModule)
+        compile('jaxen:jaxen:1.1.6')
         provided(servletApi)
         jdbc(hsql)
         testRuntime(hsql)

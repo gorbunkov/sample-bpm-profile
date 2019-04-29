@@ -16,7 +16,7 @@
           extends="_local"
           name="bpmProfile-edit">
         <property name="procDefinition"
-                  view="_minimal"/>
+                  view="bpmProfile-edit"/>
         <property name="bpmProfileActors"
                   view="bpmProfileActor-edit"/>
         <property name="bpmProfileNotifications" view="_local">
@@ -34,4 +34,8 @@
     <view entity="bp$BpmProfileNotification" name="bpmProfileNotification-process-send" extends="_local">
         <property name="emailTemplate" view="_minimal"/>
     </view>
+    <view class="com.haulmont.bpm.entity.ProcDefinition" name="bpmProfile-edit" extends="_minimal">
+        <property name="actId"/>
+    </view>
+
 </views>

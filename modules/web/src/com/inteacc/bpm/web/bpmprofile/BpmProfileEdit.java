@@ -1,22 +1,24 @@
 package com.inteacc.bpm.web.bpmprofile;
 
 import com.google.common.base.Strings;
+import com.haulmont.bpm.entity.ProcDefinition;
+import com.haulmont.bpm.service.ProcessRepositoryService;
 import com.haulmont.chile.core.model.MetaClass;
 import com.haulmont.chile.core.model.MetaProperty;
 import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.Datasource;
+import com.haulmont.cuba.gui.data.impl.CollectionPropertyDatasourceImpl;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 import com.haulmont.cuba.security.entity.Role;
 import com.haulmont.cuba.security.entity.User;
 import com.inteacc.bpm.entity.*;
+import com.inteacc.bpm.service.BpmnXmlParsingService;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
@@ -54,12 +56,24 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
     @Inject
     protected CollectionDatasource<BpmProfileNotification, UUID> bpmProfileNotificationsDs;
 
+    @Inject
+    protected Table<BpmProfileNotification> bpmProfileNotificationsTable;
+
+    @Inject
+    protected BpmnXmlParsingService bpmnXmlParsingService;
+
+    @Inject
+    protected ProcessRepositoryService processRepositoryService;
+
+    protected List<String> userTaskIds = new ArrayList<>();
+
     @Override
     public void ready() {
         //todo add commit validation
         initBpmProfileActorsTable();
         initEntityNameLookup();
         initLimitAmountFieldNameLookup();
+        initBpmProfileNotificationsTable();
     }
 
     private void initBpmProfileActorsTable() {
@@ -100,6 +114,20 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
         });
     }
 
+    private void initBpmProfileNotificationsTable() {
+        reloadUserTaskIds(getItem().getProcDefinition());
+        bpmProfileNotificationsTable.addGeneratedColumn("taskId", entity -> {
+            LookupField lookupField = componentsFactory.createComponent(LookupField.class);
+            lookupField.setWidth("100%");
+            lookupField.setOptionsList(userTaskIds);
+            lookupField.setValue(entity.getTaskId());
+            lookupField.addValueChangeListener(e -> {
+                entity.setTaskId((String) e.getValue());
+            });
+            return lookupField;
+        });
+    }
+
     private void initEntityNameLookup() {
         List<String> entityNameList = metadata.getTools().getAllPersistentMetaClasses().stream()
                 .filter(metaClass -> !metadata.getTools().isSystemLevel(metaClass))
@@ -109,11 +137,34 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
         entityNameLookup.setOptionsList(entityNameList);
 
         bpmProfileDs.addItemPropertyChangeListener(e -> {
+            switch (e.getProperty()) {
+                case "entityName":
+                    //refresh properties list when another entity is selected
+                    initLimitAmountFieldNameLookup();
+                    break;
+                case "procDefinition":
+                    //clean notifications when the new ProcDefinition is selected
+                    reloadUserTaskIds((ProcDefinition) e.getValue());
+                    Collection<UUID> itemIds = bpmProfileNotificationsDs.getItemIds();
+                    for (UUID itemId : itemIds) {
+                        BpmProfileNotification item = bpmProfileNotificationsDs.getItem(itemId);
+                        bpmProfileNotificationsDs.removeItem(item);
+                    }
+                    break;
+            }
             if ("entityName".equals(e.getProperty())) {
                 //refresh properties list when another entity is selected
                 initLimitAmountFieldNameLookup();
             }
         });
+    }
+
+    private void reloadUserTaskIds(ProcDefinition procDefinition) {
+        if (procDefinition == null) {
+            userTaskIds = new ArrayList<>();
+        } else {
+            userTaskIds = bpmnXmlParsingService.getUserTaskIds(processRepositoryService.getProcessDefinitionXml(procDefinition.getActId()));
+        }
     }
 
     private void initLimitAmountFieldNameLookup() {
@@ -157,5 +208,4 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
         }
         return ok;
     }
-
 }

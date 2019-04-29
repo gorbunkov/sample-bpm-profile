@@ -1,58 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c0fa749-a15f-4a81-81aa-9a9723ade6ee" name="Default Changelist" comment="Notification service">
-      <change afterPath="$PROJECT_DIR$/.idea/cuba-project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-0-dropBpmProfileNotificatoin.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-0-dropBpmProfileNotificatoin_DropScript.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-0-dropBpmProfileRole.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-0-dropBpmProfileRole_DropScript.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-0-dropBpmProfileUser.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-0-dropBpmProfileUser_DropScript.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-1-createBpmProfileActor.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-1-createBpmProfileNotification.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-1-createBpmProfileNotificatoin.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-createBpmProfileActor.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-createBpmProfileNotification.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-createBpmProfileNotificatoin.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-updateBpmProfile.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-updateBpmProfile01.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-updateBpmProfile01_DropScript.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-updateBpmProfile02.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/db/update/hsql/19/190426-2-updateBpmProfile_DropScript.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/AppLifecycleBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/eventlistener/NotificationActivitiEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/parsehandler/ProcessNotificationBpmnParseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmProfileServiceBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/ProcessNotificationServiceBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileActor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileNotification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/BpmProfileService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/ProcessNotificationService.java" afterDir="false" />
+    <list default="true" id="2c0fa749-a15f-4a81-81aa-9a9723ade6ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmnXmlParsingServiceBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/BpmnXmlParsingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/core/db/init/hsql/10.create-db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/modules/core/db/init/hsql/10.create-db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/core/db/init/hsql/20.create-db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/modules/core/db/init/hsql/20.create-db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/app.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/EmailTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/EmailTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/views.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web-spring.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileEdit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-browse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-browse.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/salesorder/SalesOrderEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/salesorder/SalesOrderEdit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/salesorder/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/salesorder/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/salesorder/sales-order-edit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/salesorder/sales-order-edit.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -99,50 +56,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/eventlistener/NotificationActivitiEventListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="61" lean-forward="true" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/AppLifecycleBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="111" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="111" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="465">
-                <caret line="18" column="441" selection-start-line="18" selection-start-column="441" selection-end-line="18" selection-end-column="441" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileEdit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="152" selection-start-line="152" selection-end-line="152" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/parsehandler/ProcessNotificationBpmnParseHandler.java">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Collection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="312">
+              <caret line="188" column="16" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.cuba/cuba-gui/6.10.9/af24d0a43bbd75464033c044d40306c0d7ef8f4e/cuba-gui-6.10.9-sources.jar!/com/haulmont/cuba/gui/data/CollectionDatasource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="91" column="9" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+            </state>
+          </provider>
+          <provider editor-type-id="cuba_entity_ddl" />
+          <provider editor-type-id="cuba_entity_properties" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/BpmnXmlParsingService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmnXmlParsingServiceBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="46" lean-forward="true" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/service/ProcessRuntimeServiceBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -150,54 +127,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="77" lean-forward="true" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
-            </state>
-          </provider>
-          <provider editor-type-id="cuba_designer_properties" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmProfileServiceBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/ProcessNotificationServiceBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="26" column="86" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="86" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/messages.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="49" column="45" lean-forward="true" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-browse.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="cuba_designer_properties" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/ProcessNotificationService.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+            </state>
+          </provider>
+          <provider editor-type-id="cuba_designer_properties" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/views.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+            </state>
+          </provider>
+          <provider editor-type-id="cuba_view_config" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -232,6 +183,15 @@
       <find>typedListeners</find>
       <find>tasks</find>
       <find>\</find>
+      <find>template</find>
+      <find>?screen</find>
+      <find>refresh</find>
+      <find>coreMO</find>
+      <find>Emailtemplate</find>
+      <find>fillUserTaskIds</find>
+      <find>emailT</find>
+      <find>bpmProfileNotificationsDs</find>
+      <find>modified</find>
     </findStrings>
     <replaceStrings>
       <replace>bpmProfileActorsDs</replace>
@@ -252,7 +212,6 @@
         <option value="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/salesorder/SalesOrderEdit.java" />
         <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileNotificatoin.java" />
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmProcessServiceBean.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileNotification.java" />
         <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/ExtEmailTemplate.java" />
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/app.properties" />
@@ -262,19 +221,21 @@
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/MyAppLifecycleBean.java" />
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/ProcessNotificationBpmnParseHandler.java" />
         <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/BpmProfileService.java" />
-        <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/ProcessNotificationService.java" />
-        <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/ProcessNotificationServiceBean.java" />
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/eventlistener/InteaccActivitiEventListener.java" />
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/eventlistener/NotificationActivitiEventListener.java" />
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmProfileServiceBean.java" />
         <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfile.java" />
         <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/persistence.xml" />
-        <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/views.xml" />
-        <option value="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml" />
-        <option value="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileEdit.java" />
         <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/EmailTemplate.java" />
         <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/AppLifecycleBean.java" />
+        <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/ProcessNotificationServiceBean.java" />
+        <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/ProcessNotificationService.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmnXmlParsingServiceBean.java" />
+        <option value="$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/views.xml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml" />
+        <option value="$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileEdit.java" />
       </list>
     </option>
   </component>
@@ -509,6 +470,17 @@
               <item name="inteacc" type="462c0819:PsiDirectoryNode" />
               <item name="bpm" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bpmdemo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bpmdemo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="inteacc" type="462c0819:PsiDirectoryNode" />
+              <item name="bpm" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bpmdemo" type="b2602c69:ProjectViewProjectNode" />
@@ -759,7 +731,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../platform/bpm" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vcs.patch.path" value="$USER_HOME$/OneDrive/Temp" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradlew zip" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -774,6 +752,26 @@
     </option>
   </component>
   <component name="RunManager" selected="Remote.Unnamed">
+    <configuration name="bpmdemo [w zip]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="w" />
+            <option value="zip" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="Remote" nameIsGenerated="true">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -799,7 +797,13 @@
     <list>
       <item itemvalue="CUBA Application.CUBA Application" />
       <item itemvalue="Remote.Unnamed" />
+      <item itemvalue="Gradle.bpmdemo [w zip]" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.bpmdemo [w zip]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -813,7 +817,7 @@
       <updated>1556247653890</updated>
       <workItem from="1556247657612" duration="18260000" />
       <workItem from="1556532665568" duration="1460000" />
-      <workItem from="1556534640127" duration="10794000" />
+      <workItem from="1556534640127" duration="16687000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1556247787533</created>
@@ -829,17 +833,31 @@
       <option name="project" value="LOCAL" />
       <updated>1556282271168</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Process actors selection based on BpmProfile;&#10;Sending notifications based on email templates configured in the BpmProfile;">
+      <created>1556545934629</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556545934630</updated>
+    </task>
+    <task id="LOCAL-00004" summary="editorLink parameter for the email template">
+      <created>1556548239858</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556548239858</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30514000" />
+    <option name="totallyTimeSpent" value="36407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1864" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20787139" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19235033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -849,15 +867,15 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43654823" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.22845276" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43613708" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.30114228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32994923" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32994923" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32917964" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
@@ -884,7 +902,9 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="mortoza-bpm-demo-2019-04-26" />
-    <option name="LAST_COMMIT_MESSAGE" value="mortoza-bpm-demo-2019-04-26" />
+    <MESSAGE value="Process actors selection based on BpmProfile;&#10;Sending notifications based on email templates configured in the BpmProfile;" />
+    <MESSAGE value="editorLink parameter for the email template" />
+    <option name="LAST_COMMIT_MESSAGE" value="editorLink parameter for the email template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -900,12 +920,6 @@
           <line>23</line>
           <properties />
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/eventlistener/NotificationActivitiEventListener.java</url>
-          <line>20</line>
-          <properties />
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/core/engine/listener/BpmActivitiListener.java</url>
@@ -932,16 +946,21 @@
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmProfileServiceBean.java</url>
-          <line>53</line>
+          <url>file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/ProcessNotificationServiceBean.java</url>
+          <line>96</line>
           <properties />
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>globalConfig.getWebAppUrl() + &quot;/open?screen=&quot; + entityName + &quot;.edit&amp;item=&quot; + entityName + &quot;-&quot; + entityId</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>((ProcessEngineConfigurationImpl) processEngineConfiguration).getPreBpmnParseHandlers()</expression-string>
         <language-id>JAVA</language-id>
@@ -950,131 +969,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/ExtEmailTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="cuba_entity_ddl" />
-      <provider editor-type-id="cuba_entity_properties" />
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/service/ModelServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="166" column="57" lean-forward="true" selection-start-line="166" selection-start-column="57" selection-end-line="166" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/ProcessEngineConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/parse/BpmnParseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-bpmn-converter/5.20.0/2a9a47cd05a8c8eab2f0cdf891edcae112e4192d/activiti-bpmn-converter-5.20.0-sources.jar!/org/activiti/bpmn/converter/child/ActivitiEventListenerParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="34" column="81" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-bpmn-model/5.20.0/cd43542bbbffd4d3c7ea2b3306a7a3d68a1854dc/activiti-bpmn-model-5.20.0-sources.jar!/org/activiti/bpmn/model/EventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/core/engine/parser/BpmUserTaskParseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/impl/bpmn/helper/DelegateActivitiEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="58" column="63" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/impl/persistence/entity/TaskEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="564" selection-start-line="564" selection-end-line="564" />
-          <folding>
-            <element signature="e#28716#28717#0" expanded="true" />
-            <element signature="e#28750#28751#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/delegate/event/impl/ActivitiEventDispatcherImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/delegate/event/impl/ActivitiEventSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/impl/bpmn/parser/BpmnParseHandlers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/impl/bpmn/parser/handler/AbstractBpmnParseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="97" column="4" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.18.RELEASE/6cf1f5915d2db41c55992ddcea5f3361b8fcbc11/spring-context-4.3.18.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="542" selection-start-line="542" selection-end-line="542" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/24915b64c6896c11fc944dbfd3ad40a1c2f1b5c/bpm-core-6.10.9.jar!/bpm-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="15" column="99" lean-forward="true" selection-start-line="15" selection-start-column="99" selection-end-line="15" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/core/engine/cfg/ExtSpringProcessEngineConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/org.activiti/activiti-engine/5.20.0/d0db9d32ab2ca4a92da399f6e241b53c71e136db/activiti-engine-5.20.0-sources.jar!/org/activiti/engine/impl/cfg/ProcessEngineConfigurationImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1116,20 +1010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.addon.emailtemplates/yet-core/1.0.2/f794dce154b9936889d5a8113d5d0188583dc631/yet-core-1.0.2-sources.jar!/com/haulmont/addon/emailtemplates/emailer/Emailer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/core/engine/listener/BpmActivitiListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
         </state>
       </provider>
     </entry>
@@ -1189,23 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/views.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="cuba_view_config" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-        </state>
-      </provider>
-      <provider editor-type-id="cuba_entity_ddl" />
-      <provider editor-type-id="cuba_entity_properties" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfileTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1259,35 +1122,6 @@
       <provider editor-type-id="cuba_entity_ddl" />
       <provider editor-type-id="cuba_entity_properties" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="130" column="9" lean-forward="true" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/BpmProfileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmProfileServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="77" lean-forward="true" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
-        </state>
-      </provider>
-      <provider editor-type-id="cuba_designer_properties" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/parsehandler/ProcessNotificationBpmnParseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1308,33 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/eventlistener/NotificationActivitiEventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="61" lean-forward="true" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/ProcessNotificationServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="26" column="86" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/ProcessNotificationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-browse.xml">
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="cuba_designer_properties" />
@@ -1346,13 +1153,219 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/BpmProfileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.addon.emailtemplates/yet-core/1.0.2/f794dce154b9936889d5a8113d5d0188583dc631/yet-core-1.0.2-sources.jar!/com/haulmont/addon/emailtemplates/builder/EmailTemplateBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="184" column="9" selection-start-line="184" selection-start-column="9" selection-end-line="184" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.addon.emailtemplates/yet-core/1.0.2/f794dce154b9936889d5a8113d5d0188583dc631/yet-core-1.0.2-sources.jar!/com/haulmont/addon/emailtemplates/core/EmailTemplatesAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="96" column="24" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/InteaccBpmService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/InteaccBpmServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="35" column="121" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/ProcessNotificationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileBrowse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.cuba/cuba-global/6.10.9/b836370b4b3b517f5cd69335915cd3bc05ab14c1/cuba-global-6.10.9-sources.jar!/com/haulmont/cuba/core/global/GlobalConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="69" column="11" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/core/eventlistener/NotificationActivitiEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/ProcessNotificationServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.addon.emailtemplates/yet-core/1.0.2/f794dce154b9936889d5a8113d5d0188583dc631/yet-core-1.0.2-sources.jar!/com/haulmont/addon/emailtemplates/emailer/Emailer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/core/engine/listener/BpmActivitiListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="66" column="83" lean-forward="true" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="465">
-            <caret line="18" column="441" selection-start-line="18" selection-start-column="441" selection-end-line="18" selection-end-column="441" />
+          <first_editor relative-caret-position="480">
+            <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/core/ProcessRepositoryManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="41" column="53" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/service/ProcessRepositoryServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+          <folding>
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="e#1081#1082#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-gui/6.10.9/96f3103c13a3bf7380030556065344045313974a/bpm-gui-6.10.9-sources.jar!/com/haulmont/bpm/gui/procdefinition/ProcDefinitionEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-global/6.10.9/8c9a131e388fc269749ee42b1fd2b02694f63d3e/bpm-global-6.10.9-sources.jar!/com/haulmont/bpm/service/ProcessRepositoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmProfileServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="97" column="1" lean-forward="true" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.bpm/bpm-core/6.10.9/25f04cb07a6ec1b1b5ee24f311484d6b0d532e04/bpm-core-6.10.9-sources.jar!/com/haulmont/bpm/service/ProcessRuntimeServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/entity/BpmProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider editor-type-id="cuba_entity_ddl" />
+      <provider editor-type-id="cuba_entity_properties" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/views.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        </state>
+      </provider>
+      <provider editor-type-id="cuba_view_config" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/core/src/com/inteacc/bpm/service/BpmnXmlParsingServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="46" lean-forward="true" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/global/src/com/inteacc/bpm/service/BpmnXmlParsingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/bpm-profile-edit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        </state>
+      </provider>
+      <provider editor-type-id="cuba_designer_properties" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="188" column="16" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/.gradle/caches/modules-2/files-2.1/com.haulmont.cuba/cuba-gui/6.10.9/af24d0a43bbd75464033c044d40306c0d7ef8f4e/cuba-gui-6.10.9-sources.jar!/com/haulmont/cuba/gui/data/CollectionDatasource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="91" column="9" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/web/src/com/inteacc/bpm/web/bpmprofile/BpmProfileEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>

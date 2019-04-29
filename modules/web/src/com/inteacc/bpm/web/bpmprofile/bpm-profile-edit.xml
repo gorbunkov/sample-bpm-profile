@@ -15,7 +15,7 @@
         </datasource>
         <collectionDatasource id="procDefinitionsDs"
                               class="com.haulmont.bpm.entity.ProcDefinition"
-                              view="_minimal">
+                              view="bpmProfile-edit">
             <query>
                 <![CDATA[select e from bpm$ProcDefinition e]]>
             </query>
@@ -99,8 +99,7 @@
                     <action id="remove"/>
                 </actions>
                 <columns>
-                    <column id="taskId"
-                            editable="true"/>
+                    <column id="taskId"/>
                     <column id="emailTemplate" editable="true" optionsDatasource="emailTemplatesOptionsDs"/>
                 </columns>
                 <rows datasource="bpmProfileNotificationsDs"/>
