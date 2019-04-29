@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CubaProjectState">
+    <option name="hasState" value="true" />
+    <option name="cubaModelState">
+      <CubaModelState>
+        <option name="repositories">
+          <list>
+            <RepositoryModelState>
+              <option name="url" value="https://repo.cuba-platform.com/content/groups/work" />
+              <option name="user" value="cuba" />
+              <option name="password" value="3r6+CXYTcUs=" />
+              <option name="stateVersion" value="1" />
+            </RepositoryModelState>
+            <RepositoryModelState>
+              <option name="url" value="https://repo.cuba-platform.com/content/groups/premium" />
+              <option name="user" value="170316000443" />
+              <option name="password" value="Umrtpbc27K9/fly5plTJHw==" />
+              <option name="stateVersion" value="1" />
+            </RepositoryModelState>
+          </list>
+        </option>
+        <option name="appComponents">
+          <list>
+            <DependencyModelState>
+              <option name="group" value="com.haulmont.cuba" />
+              <option name="name" value="cuba-global" />
+              <option name="version" value="6.10.9" />
+            </DependencyModelState>
+            <DependencyModelState>
+              <option name="group" value="com.haulmont.addon.sdbmt" />
+              <option name="name" value="sdbmt-global" />
+              <option name="version" value="1.2.0" />
+            </DependencyModelState>
+            <DependencyModelState>
+              <option name="group" value="com.haulmont.bpm" />
+              <option name="name" value="bpm-global" />
+              <option name="version" value="6.10.9" />
+            </DependencyModelState>
+            <DependencyModelState>
+              <option name="group" value="com.haulmont.addon.emailtemplates" />
+              <option name="name" value="yet-global" />
+              <option name="version" value="1.0.2" />
+            </DependencyModelState>
+          </list>
+        </option>
+        <option name="artifactGroup" value="com.inteacc.bpm" />
+        <option name="artifactVersion" value="0.1" />
+        <option name="artifactSnapshot" value="true" />
+        <option name="tomcatDir" value="E:\Work\support\mortoza\bpmdemo/deploy/tomcat" />
+        <option name="gradleVersion" value="4.3.1" />
+        <option name="dbmsDbType" value="hsql" />
+        <option name="oracleSystemUser" value="system" />
+        <option name="oracleSystemPassword" value="manager" />
+      </CubaModelState>
+    </option>
+    <option name="dbArtifacts">
+      <map>
+        <entry key="com.haulmont.addon.emailtemplates" value="E:\.gradle\caches\modules-2\files-2.1\com.haulmont.addon.emailtemplates\yet-core\1.0.2\377e2e0134d777833fcf16ad686d3e485594f88d\yet-core-1.0.2-db.zip" />
+        <entry key="com.haulmont.addon.grapesjs" value="E:\.gradle\caches\modules-2\files-2.1\com.haulmont.addon.grapesjs\grapesjs-core\0.1.8\5e58f856989b643daf80270d0332929faedcbe01\grapesjs-core-0.1.8-db.zip" />
+        <entry key="com.haulmont.addon.sdbmt" value="E:\.gradle\caches\modules-2\files-2.1\com.haulmont.addon.sdbmt\sdbmt-core\1.2.0\499a889cd72ef76f8d03030e2a33296f691cd1a5\sdbmt-core-1.2.0-db.zip" />
+        <entry key="com.haulmont.bpm" value="E:\.gradle\caches\modules-2\files-2.1\com.haulmont.bpm\bpm-core\6.10.9\c52423cff8480e7655a820a0408cdd8176d46c66\bpm-core-6.10.9-db.zip" />
+        <entry key="com.haulmont.cuba" value="E:\.gradle\caches\modules-2\files-2.1\com.haulmont.cuba\cuba-core\6.10.9\89974177ce94b73e68a76b736dd5efb8aa379e7a\cuba-core-6.10.9-db.zip" />
+        <entry key="com.haulmont.reports" value="E:\.gradle\caches\modules-2\files-2.1\com.haulmont.reports\reports-core\6.10.7\d4f7f3dca59b63cae8e5dd4b839f488996a5b7b5\reports-core-6.10.7-db.zip" />
+      </map>
+    </option>
+  </component>
+</project>

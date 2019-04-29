@@ -24,6 +24,7 @@
                 <field property="processState"/>
             </column>
         </fieldGroup>
+        <button id="startProcessBtn" icon="font-icon:PLAY" caption="msg://startProcess" invoke="startProcess"/>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

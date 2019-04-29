@@ -8,7 +8,7 @@
     <dsContext>
         <groupDatasource id="bpmProfilesDs"
                          class="com.inteacc.bpm.entity.BpmProfile"
-                         view="bpmProfile-view">
+                         view="bpmProfile-browse">
             <query>
                 <![CDATA[select e from bp$BpmProfile e]]>
             </query>
@@ -35,8 +35,6 @@
                 <column id="adHocUserSelection"/>
                 <column id="entityName"/>
                 <column id="procDefinition"/>
-                <column id="delegationTargetGroup"/>
-                <column id="procModel"/>
             </columns>
             <rows datasource="bpmProfilesDs"/>
             <rowsCount/>

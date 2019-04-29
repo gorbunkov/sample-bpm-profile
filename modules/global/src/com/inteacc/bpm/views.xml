@@ -6,42 +6,32 @@
     <view class="com.inteacc.bpm.entity.PurchaseOrder"
           extends="_local"
           name="purchaseOrder-view"/>
-    <view class="com.inteacc.bpm.entity.BpmProfileUser"
-          extends="_local"
-          name="bpmProfileUser-view">
-        <property name="extProcRole"
-                  view="_minimal"/>
-        <property name="user"
-                  view="_minimal"/>
-    </view>
-    <view class="com.inteacc.bpm.entity.BpmProfileTask"
-          extends="_local"
-          name="bpmProfileTask-view">
-        <property name="procTask"
-                  view="_minimal"/>
-        <property name="emailTemplate"
-                  view="_minimal"/>
-    </view>
-    <view class="com.inteacc.bpm.entity.BpmProfileRole"
-          extends="_local"
-          name="bpmProfileRole-view">
-        <property name="role"
-                  view="_minimal"/>
-        <property name="procRole"
-                  view="_minimal"/>
-    </view>
     <view class="com.inteacc.bpm.entity.BpmProfile"
           extends="_local"
           name="bpmProfile-view">
         <property name="procDefinition"
                   view="_minimal"/>
-        <property name="bpmProfileRole"
-                  view="bpmProfileRole-view"/>
-        <property name="bpmProfileTask"
-                  view="bpmProfileTask-view"/>
-        <property name="bpmProfileUser"
-                  view="bpmProfileUser-view"/>
-        <property name="procModel"
+    </view>
+    <view class="com.inteacc.bpm.entity.BpmProfile"
+          extends="_local"
+          name="bpmProfile-edit">
+        <property name="procDefinition"
                   view="_minimal"/>
+        <property name="bpmProfileActors"
+                  view="bpmProfileActor-edit"/>
+        <property name="bpmProfileNotifications" view="_local">
+            <property name="emailTemplate" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="bp$BpmProfileActor" name="bpmProfileActor-edit" extends="_local">
+        <property name="procRole" view="_minimal"/>
+        <property name="user" view="_minimal"/>
+        <property name="secRole" view="_minimal"/>
+    </view>
+    <view entity="bp$BpmProfile" name="bpmProfile-browse" extends="_local">
+        <property name="procDefinition" view="_minimal"/>
+    </view>
+    <view entity="bp$BpmProfileNotification" name="bpmProfileNotification-process-send" extends="_local">
+        <property name="emailTemplate" view="_minimal"/>
     </view>
 </views>

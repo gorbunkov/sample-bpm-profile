@@ -12,6 +12,8 @@
             <map>
                 <entry key="bp_InteaccBpmService"
                        value="com.inteacc.bpm.service.InteaccBpmService"/>
+                <entry key="bp_BpmProcessService" value="com.inteacc.bpm.service.BpmProfileService"/>
+                <entry key="bp_ProcessNotificationService" value="com.inteacc.bpm.service.ProcessNotificationService"/>
             </map>
         </property>
     </bean>

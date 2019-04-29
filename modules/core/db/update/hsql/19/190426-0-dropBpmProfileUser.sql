@@ -1,0 +1,1 @@
+alter table BP_BPM_PROFILE_USER rename to BP_BPM_PROFILE_USER__U45971 ;

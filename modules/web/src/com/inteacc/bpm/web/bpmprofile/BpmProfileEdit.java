@@ -1,123 +1,161 @@
 package com.inteacc.bpm.web.bpmprofile;
 
+import com.google.common.base.Strings;
+import com.haulmont.chile.core.model.MetaClass;
+import com.haulmont.chile.core.model.MetaProperty;
 import com.haulmont.cuba.core.global.Metadata;
-import com.haulmont.cuba.gui.components.AbstractEditor;
-import com.haulmont.cuba.gui.components.Component;
-import com.haulmont.cuba.gui.components.GroupBoxLayout;
-import com.haulmont.cuba.gui.components.Table;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 import com.haulmont.cuba.gui.data.Datasource;
+import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
+import com.haulmont.cuba.security.entity.Role;
+import com.haulmont.cuba.security.entity.User;
 import com.inteacc.bpm.entity.*;
 
 import javax.inject.Inject;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
 
     @Inject
+    protected ComponentsFactory componentsFactory;
+
+    @Inject
     private Datasource<BpmProfile> bpmProfileDs;
+
     @Inject
-    private CollectionDatasource<BpmProfileRole, UUID> bpmProfileRoleDs;
+    protected CollectionDatasource<BpmProfileActor, UUID> bpmProfileActorsDs;
+
     @Inject
-    private CollectionDatasource<BpmProfileTask, UUID> bpmProfileTaskDs;
+    protected Table<BpmProfileActor> bpmProfileActorsTable;
+
     @Inject
-    private CollectionDatasource<BpmProfileUser, UUID> bpmProfileUserDs;
+    protected CollectionDatasource<User, UUID> usersDs;
+
     @Inject
-    private GroupBoxLayout bpmProfileUserBox;
+    protected CollectionDatasource<ExtRole, UUID> extRolesDs;
+
     @Inject
-    private GroupBoxLayout bpmProfileRoleBox;
-    @Inject
-    private Table<BpmProfileRole> bpmProfileRoleTable;
-    @Inject
-    private Table<BpmProfileUser> bpmProfileUserTable;
+    protected FieldGroup fieldGroup;
+
     @Inject
     private Metadata metadata;
 
-    @Override
-    protected void postInit() {
-        bpmProfileDs.addItemPropertyChangeListener(e -> {
-            if("delegationTargetGroup".equals(e.getProperty())){
-                showHideComponents();
-            }else if("adHocUserSelection".equals(e.getProperty())){
-                if(getItem().getAdHocUserSelection()==true){
-                    bpmProfileUserBox.setVisible(false);
-                    bpmProfileRoleBox.setVisible(false);
-                }else{
-                    showHideComponents();
-                }
-            }else if ("procModel".equals(e.getProperty())){
-                //procRolesDs.refresh();
+    @Inject
+    protected LookupField entityNameLookup;
 
+    @Inject
+    protected LookupField limitAmountFieldNameLookup;
+
+    @Inject
+    protected CollectionDatasource<BpmProfileNotification, UUID> bpmProfileNotificationsDs;
+
+    @Override
+    public void ready() {
+        //todo add commit validation
+        initBpmProfileActorsTable();
+        initEntityNameLookup();
+        initLimitAmountFieldNameLookup();
+    }
+
+    private void initBpmProfileActorsTable() {
+        bpmProfileActorsTable.addGeneratedColumn("secRole", entity -> {
+            if (entity.getDelegationTargetGroup() == DelegationTargetGroup.ROLES) {
+                LookupField lookupField = componentsFactory.createComponent(LookupField.class);
+                lookupField.setWidth("100%");
+                lookupField.setOptionsDatasource(extRolesDs);
+                lookupField.setValue(entity.getSecRole());
+                lookupField.addValueChangeListener(e -> {
+                    entity.setSecRole((Role) e.getValue());
+                });
+                return lookupField;
+            } else {
+                return null;
+            }
+        });
+
+        bpmProfileActorsTable.addGeneratedColumn("user", entity -> {
+            if (entity.getDelegationTargetGroup() == DelegationTargetGroup.USERS) {
+                LookupField lookupField = componentsFactory.createComponent(LookupField.class);
+                lookupField.setWidth("100%");
+                lookupField.setOptionsDatasource(usersDs);
+                lookupField.setValue(entity.getUser());
+                lookupField.addValueChangeListener(e -> {
+                    entity.setUser((User) e.getValue());
+                });
+                return lookupField;
+            } else {
+                return null;
+            }
+        });
+
+        bpmProfileActorsDs.addItemPropertyChangeListener(e -> {
+            if ("delegationTargetGroup".equals(e.getProperty())) {
+                bpmProfileActorsDs.refresh();
             }
         });
     }
 
+    private void initEntityNameLookup() {
+        List<String> entityNameList = metadata.getTools().getAllPersistentMetaClasses().stream()
+                .filter(metaClass -> !metadata.getTools().isSystemLevel(metaClass))
+                .map(MetaClass::getName)
+                .sorted()
+                .collect(Collectors.toList());
+        entityNameLookup.setOptionsList(entityNameList);
 
-    @Override
-    protected void initNewItem(BpmProfile item) {
-        item.setDelegationTargetGroup(DelegationTargetGroup.ROLES);
+        bpmProfileDs.addItemPropertyChangeListener(e -> {
+            if ("entityName".equals(e.getProperty())) {
+                //refresh properties list when another entity is selected
+                initLimitAmountFieldNameLookup();
+            }
+        });
     }
 
-    @Override
-    public void ready() {
-
-        if(getItem().getDelegationTargetGroup()!=null){
-            showHideComponents();
-
+    private void initLimitAmountFieldNameLookup() {
+        String entityName = getItem().getEntityName();
+        if (!Strings.isNullOrEmpty(entityName)) {
+            MetaClass metaClass = metadata.getClassNN(entityName);
+            List<String> bigDecimalPropertyNames = metaClass.getProperties().stream()
+                    .filter(metaProperty -> BigDecimal.class.equals(metaProperty.getJavaType()))
+                    .map(MetaProperty::getName)
+                    .sorted()
+                    .collect(Collectors.toList());
+            limitAmountFieldNameLookup.setOptionsList(bigDecimalPropertyNames);
+        } else {
+            limitAmountFieldNameLookup.setOptionsList(new ArrayList<>());
         }
-
     }
 
-
-    private void showHideComponents(){
-        if(getItem().getDelegationTargetGroup().equals(DelegationTargetGroup.ROLES)){
-            bpmProfileUserBox.setVisible(false);
-            bpmProfileRoleBox.setVisible(true);
-        }else{
-            bpmProfileRoleBox.setVisible(false);
-            bpmProfileUserBox.setVisible(true);
-        }
-    }
-
-    public void onAddRole(Component source) {
-
-        if(okToCreate()) {
-            BpmProfileRole authorityRole =  metadata.create(BpmProfileRole.class);
-            authorityRole.setBpmProfile(getItem());
-
-            bpmProfileRoleDs.addItem(authorityRole);
-            bpmProfileRoleTable.scrollTo(authorityRole);
-            bpmProfileRoleTable.setSelected(authorityRole);
-            //bpmProfileRoleTable.requestFocus(authorityRole, "userRole");
-            bpmProfileRoleTable.requestFocus(authorityRole, "role");
-        }else{
+    public void onAddProfileActor(Component source) {
+        if (okToCreate()) {
+            BpmProfileActor bpmProfileActor = metadata.create(BpmProfileActor.class);
+            bpmProfileActor.setBpmProfile(getItem());
+            bpmProfileActorsDs.addItem(bpmProfileActor);
+            bpmProfileActorsTable.scrollTo(bpmProfileActor);
+            bpmProfileActorsTable.setSelected(bpmProfileActor);
+        } else {
             showNotification("Please update the required data before this action", NotificationType.HUMANIZED);
         }
     }
 
-    public void onAddUser(Component source) {
-        if(okToCreate()) {
-            BpmProfileUser authorityRole =  metadata.create(BpmProfileUser.class);
-            authorityRole.setBpmProfile(getItem());
-
-            bpmProfileUserDs.addItem(authorityRole);
-            bpmProfileUserTable.scrollTo(authorityRole);
-            bpmProfileUserTable.setSelected(authorityRole);
-            bpmProfileUserTable.requestFocus(authorityRole, "user");
-        }else{
-            showNotification("Please update the required data before this action", NotificationType.HUMANIZED);
-        }
+    public void onAddProfileNotification() {
+        BpmProfileNotification bpmProfileNotification = metadata.create(BpmProfileNotification.class);
+        bpmProfileNotification.setBpmProfile(getItem());
+        bpmProfileNotificationsDs.addItem(bpmProfileNotification);
     }
 
-
-    private boolean okToCreate(){
+    private boolean okToCreate() {
         boolean ok = true;
-        if(getItem().getProcDefinition()==null){
-
-            ok=false;
-            showNotification("Please select the Process Model first", NotificationType.HUMANIZED);
+        if (getItem().getProcDefinition() == null) {
+            ok = false;
+            showNotification("Please select the ProcessDefinition first", NotificationType.HUMANIZED);
         }
-
         return ok;
     }
+
 }
