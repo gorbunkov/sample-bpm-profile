@@ -46,8 +46,7 @@ public class BpmProfileServiceBean implements BpmProfileService {
             return null;
         }
         ProcInstance procInstance = buildProcInstanceByProfile(bpmProfile, entity);
-        processRuntimeService.startProcess(procInstance, null, new HashMap<>());
-        return null;
+        return processRuntimeService.startProcess(procInstance, null, new HashMap<>());
     }
 
     private ProcInstance buildProcInstanceByProfile(BpmProfile bpmProfile, Entity entity) {
