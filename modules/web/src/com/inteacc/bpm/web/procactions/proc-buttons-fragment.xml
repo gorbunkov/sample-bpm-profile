@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd">
+    <data/>
+    <layout>
+        <vbox id="actionsBox" spacing="true" width="100%"/>
+    </layout>
+</fragment>

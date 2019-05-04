@@ -23,7 +23,7 @@
                 <lookupField id="processStateLookup" property="processState"/>
             </column>
         </form>
-        <button id="startProcessBtn" icon="font-icon:PLAY" caption="msg://startProcess"/>
+        <fragment id="procButtonsFragment" screen="bp_ProcButtonsFragment" width="400px"/>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowClose"/>
