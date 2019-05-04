@@ -2,9 +2,9 @@
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-bp"
           insertBefore="administration">
-        <item screen="bp$SalesOrder.browse"/>
+        <item screen="bp_SalesOrder.browse"/>
         <item screen="bp$PurchaseOrder.browse"/>
     </menu>
     <item insertAfter="stencilSetEditor"
-          screen="bp$BpmProfile.browse"/>
+          screen="bp_BpmProfile.browse"/>
 </menu-config>

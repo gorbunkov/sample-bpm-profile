@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
-        class="com.inteacc.bpm.web.salesorder.SalesOrderBrowse"
         focusComponent="salesOrdersTable"
-        lookupComponent="salesOrdersTable"
         messagesPack="com.inteacc.bpm.web.salesorder">
-    <dsContext>
-        <groupDatasource id="salesOrdersDs"
-                         class="com.inteacc.bpm.entity.SalesOrder"
-                         view="salesOrder-view">
-            <query>
-                <![CDATA[select e from bp$SalesOrder e]]>
-            </query>
-        </groupDatasource>
-    </dsContext>
+    <data>
+        <collection id="salesOrdersDc"
+                    class="com.inteacc.bpm.entity.SalesOrder"
+                    view="salesOrder-view">
+            <loader id="salesOrdersDl">
+                <query>
+                    <![CDATA[select e from bp_SalesOrder e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="salesOrdersTable"
             spacing="true">
         <filter id="filter"
                 applyTo="salesOrdersTable"
-                datasource="salesOrdersDs">
+                dataLoader="salesOrdersDl">
             <properties include=".*"/>
         </filter>
         <groupTable id="salesOrdersTable"
+                    dataContainer="salesOrdersDc"
                     width="100%">
             <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="docNo"/>
@@ -37,7 +38,6 @@
                 <column id="amount"/>
                 <column id="processState"/>
             </columns>
-            <rows datasource="salesOrdersDs"/>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">

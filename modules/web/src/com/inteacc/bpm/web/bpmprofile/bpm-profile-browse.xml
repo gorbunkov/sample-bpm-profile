@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
-        class="com.inteacc.bpm.web.bpmprofile.BpmProfileBrowse"
         focusComponent="bpmProfilesTable"
-        lookupComponent="bpmProfilesTable"
         messagesPack="com.inteacc.bpm.web.bpmprofile">
-    <dsContext>
-        <groupDatasource id="bpmProfilesDs"
-                         class="com.inteacc.bpm.entity.BpmProfile"
-                         view="bpmProfile-browse">
-            <query>
-                <![CDATA[select e from bp$BpmProfile e]]>
-            </query>
-        </groupDatasource>
-    </dsContext>
+    <data>
+        <collection id="bpmProfilesDc"
+                    class="com.inteacc.bpm.entity.BpmProfile"
+                    view="bpmProfile-browse">
+            <loader id="bpmProfilesDl">
+                <query>
+                    <![CDATA[select e from bp_BpmProfile e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="bpmProfilesTable"
             spacing="true">
         <filter id="filter"
                 applyTo="bpmProfilesTable"
-                datasource="bpmProfilesDs">
+                dataLoader="bpmProfilesDl">
             <properties include=".*"/>
         </filter>
         <groupTable id="bpmProfilesTable"
+                    dataContainer="bpmProfilesDc"
                     width="100%">
             <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="description"/>
@@ -36,7 +37,6 @@
                 <column id="entityName"/>
                 <column id="procDefinition"/>
             </columns>
-            <rows datasource="bpmProfilesDs"/>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">

@@ -6,7 +6,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import javax.persistence.*;
 
 @Table(name = "BP_BPM_PROFILE_NOTIFICATION")
-@Entity(name = "bp$BpmProfileNotification")
+@Entity(name = "bp_BpmProfileNotification")
 public class BpmProfileNotification extends StandardEntity {
     @Column(name = "TASK_ID")
     protected String taskId;

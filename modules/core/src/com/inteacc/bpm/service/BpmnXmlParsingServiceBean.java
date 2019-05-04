@@ -1,10 +1,7 @@
 package com.inteacc.bpm.service;
 
 import com.haulmont.bali.util.Dom4j;
-import org.dom4j.Attribute;
-import org.dom4j.Document;
-import org.dom4j.DocumentHelper;
-import org.dom4j.XPath;
+import org.dom4j.*;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -19,9 +16,9 @@ public class BpmnXmlParsingServiceBean implements BpmnXmlParsingService {
     public List<String> getUserTaskIds(String bpmnXml) {
         Document document = Dom4j.readDocument(bpmnXml);
         XPath xPath = createXPath("//bpmn:userTask/@id");
-        List<Attribute> taskIds = xPath.selectNodes(document);
+        List<Node> taskIds = xPath.selectNodes(document);
         return taskIds.stream()
-                .map(Attribute::getValue)
+                .map(node -> ((Attribute) node).getValue())
                 .collect(Collectors.toList());
     }
 

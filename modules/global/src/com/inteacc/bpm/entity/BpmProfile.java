@@ -15,7 +15,7 @@ import java.util.List;
 
 @NamePattern("%s|description")
 @Table(name = "BP_BPM_PROFILE")
-@Entity(name = "bp$BpmProfile")
+@Entity(name = "bp_BpmProfile")
 public class BpmProfile extends StandardEntity {
     private static final long serialVersionUID = -926644504110944239L;
 

@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        class="com.inteacc.bpm.web.salesorder.SalesOrderEdit"
-        datasource="salesOrderDs"
-        focusComponent="fieldGroup"
+        focusComponent="salesOrderForm"
         messagesPack="com.inteacc.bpm.web.salesorder">
-    <dsContext>
-        <datasource id="salesOrderDs"
+    <data>
+        <instance id="salesOrderDc"
                     class="com.inteacc.bpm.entity.SalesOrder"
-                    view="salesOrder-view"/>
-    </dsContext>
+                    view="salesOrder-view">
+            <loader/>
+        </instance>
+    </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="windowActions"
+    <layout expand="editActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="salesOrderDs">
-            <column width="250px">
-                <field property="docNo"/>
-                <field property="docDate"/>
-                <field property="customer"/>
-                <field property="amount"/>
-                <field property="processState"/>
+        <form id="salesOrderForm" dataContainer="salesOrderDc">
+            <column width="100%">
+                <textField id="docNoField" property="docNo"/>
+                <dateField id="docDateField" property="docDate"/>
+                <textField id="customerField" property="customer"/>
+                <textField id="amountField" property="amount"/>
+                <lookupField id="processStateLookup" property="processState"/>
             </column>
-        </fieldGroup>
-        <button id="startProcessBtn" icon="font-icon:PLAY" caption="msg://startProcess" invoke="startProcess"/>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        </form>
+        <button id="startProcessBtn" icon="font-icon:PLAY" caption="msg://startProcess"/>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
     </layout>
 </window>

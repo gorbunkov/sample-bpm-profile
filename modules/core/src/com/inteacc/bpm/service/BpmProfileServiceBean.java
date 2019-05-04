@@ -40,7 +40,7 @@ public class BpmProfileServiceBean implements BpmProfileService {
 
     @Override
     public ProcInstance startProcessUsingBpmProfile(Entity entity) {
-        BpmProfile bpmProfile = findProfileByEntityName(entity.getMetaClass().getName());
+        BpmProfile bpmProfile = findBpmProfileByEntityName(entity.getMetaClass().getName());
         if (bpmProfile == null) {
             log.info("BpmProfile for entity {} not found", entity.getMetaClass().getName());
             return null;
@@ -78,10 +78,11 @@ public class BpmProfileServiceBean implements BpmProfileService {
         return bpmEntitiesService.createProcInstance(procInstanceDetails);
     }
 
+    @Override
     @Nullable
-    private BpmProfile findProfileByEntityName(String entityName) {
+    public BpmProfile findBpmProfileByEntityName(String entityName) {
         List<BpmProfile> profiles = dataManager.load(BpmProfile.class)
-                .query("select p from bp$BpmProfile p where p.entityName = :entityName")
+                .query("select p from bp_BpmProfile p where p.entityName = :entityName")
                 .parameter("entityName", entityName)
                 .view("bpmProfile-edit")
                 .list();

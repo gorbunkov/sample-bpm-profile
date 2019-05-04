@@ -35,10 +35,9 @@
                 </hbox>
                 <cssLayout id="sideMenuWrap"
                            stylename="c-sidemenu-wrap">
-                    <embedded id="logoImage"
+                    <image id="logoImage"
                               align="MIDDLE_CENTER"
-                              stylename="c-app-icon"
-                              type="IMAGE"/>
+                              stylename="c-app-icon"/>
                     <main:userIndicator id="userIndicator"
                                         width="100%"/>
                     <hbox id="mainButtonsBox"

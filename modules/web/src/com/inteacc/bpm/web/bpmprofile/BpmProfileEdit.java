@@ -2,59 +2,60 @@ package com.inteacc.bpm.web.bpmprofile;
 
 import com.google.common.base.Strings;
 import com.haulmont.bpm.entity.ProcDefinition;
+import com.haulmont.bpm.entity.ProcRole;
 import com.haulmont.bpm.service.ProcessRepositoryService;
 import com.haulmont.chile.core.model.MetaClass;
 import com.haulmont.chile.core.model.MetaProperty;
 import com.haulmont.cuba.core.global.Metadata;
-import com.haulmont.cuba.gui.components.*;
-import com.haulmont.cuba.gui.data.CollectionDatasource;
-import com.haulmont.cuba.gui.data.Datasource;
-import com.haulmont.cuba.gui.data.impl.CollectionPropertyDatasourceImpl;
-import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
+import com.haulmont.cuba.gui.Notifications;
+import com.haulmont.cuba.gui.UiComponents;
+import com.haulmont.cuba.gui.components.Action;
+import com.haulmont.cuba.gui.components.LookupField;
+import com.haulmont.cuba.gui.components.Table;
+import com.haulmont.cuba.gui.components.data.options.ContainerOptions;
+import com.haulmont.cuba.gui.model.*;
+import com.haulmont.cuba.gui.screen.*;
 import com.haulmont.cuba.security.entity.Role;
 import com.haulmont.cuba.security.entity.User;
-import com.inteacc.bpm.entity.*;
+import com.inteacc.bpm.entity.BpmProfile;
+import com.inteacc.bpm.entity.BpmProfileActor;
+import com.inteacc.bpm.entity.BpmProfileNotification;
+import com.inteacc.bpm.entity.DelegationTargetGroup;
 import com.inteacc.bpm.service.BpmnXmlParsingService;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
-public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
+@UiController("bp_BpmProfile.edit")
+@UiDescriptor("bpm-profile-edit.xml")
+@EditedEntityContainer("bpmProfileDc")
+public class BpmProfileEdit extends StandardEditor<BpmProfile> {
 
     @Inject
-    protected ComponentsFactory componentsFactory;
-
-    @Inject
-    private Datasource<BpmProfile> bpmProfileDs;
-
-    @Inject
-    protected CollectionDatasource<BpmProfileActor, UUID> bpmProfileActorsDs;
+    protected UiComponents uiComponents;
 
     @Inject
     protected Table<BpmProfileActor> bpmProfileActorsTable;
 
     @Inject
-    protected CollectionDatasource<User, UUID> usersDs;
+    protected CollectionContainer<Role> rolesDc;
 
     @Inject
-    protected CollectionDatasource<ExtRole, UUID> extRolesDs;
-
+    protected CollectionContainer<User> usersDc;
     @Inject
-    protected FieldGroup fieldGroup;
+    protected Notifications notifications;
 
     @Inject
     private Metadata metadata;
 
     @Inject
-    protected LookupField entityNameLookup;
+    protected LookupField<String> entityNameLookup;
 
     @Inject
-    protected LookupField limitAmountFieldNameLookup;
-
-    @Inject
-    protected CollectionDatasource<BpmProfileNotification, UUID> bpmProfileNotificationsDs;
+    protected LookupField<String> limitAmountFieldNameLookup;
 
     @Inject
     protected Table<BpmProfileNotification> bpmProfileNotificationsTable;
@@ -65,11 +66,27 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
     @Inject
     protected ProcessRepositoryService processRepositoryService;
 
+    @Inject
+    protected CollectionPropertyContainer<BpmProfileActor> bpmProfileActorsDc;
+
+    @Inject
+    protected CollectionPropertyContainer<BpmProfileNotification> bpmProfileNotificationsDc;
+
+    @Inject
+    protected CollectionLoader<ProcRole> procRolesDl;
+
+    @Inject
+    protected DataContext dataContext;
+
+    @Inject
+    protected InstanceContainer<BpmProfile> bpmProfileDc;
+
     protected List<String> userTaskIds = new ArrayList<>();
 
-    @Override
-    public void ready() {
-        //todo add commit validation
+    @Subscribe
+    protected void onBeforeShow(BeforeShowEvent event) {
+        procRolesDl.setParameter("procDefinition", getEditedEntity().getProcDefinition());
+        getScreenData().loadAll();
         initBpmProfileActorsTable();
         initEntityNameLookup();
         initLimitAmountFieldNameLookup();
@@ -79,13 +96,11 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
     private void initBpmProfileActorsTable() {
         bpmProfileActorsTable.addGeneratedColumn("secRole", entity -> {
             if (entity.getDelegationTargetGroup() == DelegationTargetGroup.ROLES) {
-                LookupField lookupField = componentsFactory.createComponent(LookupField.class);
+                LookupField<Role> lookupField = uiComponents.create(LookupField.of(Role.class));
                 lookupField.setWidth("100%");
-                lookupField.setOptionsDatasource(extRolesDs);
+                lookupField.setOptions(new ContainerOptions<>(rolesDc));
                 lookupField.setValue(entity.getSecRole());
-                lookupField.addValueChangeListener(e -> {
-                    entity.setSecRole((Role) e.getValue());
-                });
+                lookupField.addValueChangeListener(e -> entity.setSecRole(e.getValue()));
                 return lookupField;
             } else {
                 return null;
@@ -94,36 +109,26 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
 
         bpmProfileActorsTable.addGeneratedColumn("user", entity -> {
             if (entity.getDelegationTargetGroup() == DelegationTargetGroup.USERS) {
-                LookupField lookupField = componentsFactory.createComponent(LookupField.class);
+                LookupField<User> lookupField = uiComponents.create(LookupField.of(User.class));
                 lookupField.setWidth("100%");
-                lookupField.setOptionsDatasource(usersDs);
+                lookupField.setOptions(new ContainerOptions<>(usersDc));
                 lookupField.setValue(entity.getUser());
-                lookupField.addValueChangeListener(e -> {
-                    entity.setUser((User) e.getValue());
-                });
+                lookupField.addValueChangeListener(e -> entity.setUser(e.getValue()));
                 return lookupField;
             } else {
                 return null;
             }
         });
-
-        bpmProfileActorsDs.addItemPropertyChangeListener(e -> {
-            if ("delegationTargetGroup".equals(e.getProperty())) {
-                bpmProfileActorsDs.refresh();
-            }
-        });
     }
 
     private void initBpmProfileNotificationsTable() {
-        reloadUserTaskIds(getItem().getProcDefinition());
+        reloadUserTaskIds(bpmProfileDc.getItem().getProcDefinition());
         bpmProfileNotificationsTable.addGeneratedColumn("taskId", entity -> {
-            LookupField lookupField = componentsFactory.createComponent(LookupField.class);
+            LookupField<String> lookupField = uiComponents.create(LookupField.TYPE_STRING);
             lookupField.setWidth("100%");
             lookupField.setOptionsList(userTaskIds);
             lookupField.setValue(entity.getTaskId());
-            lookupField.addValueChangeListener(e -> {
-                entity.setTaskId((String) e.getValue());
-            });
+            lookupField.addValueChangeListener(e -> entity.setTaskId(e.getValue()));
             return lookupField;
         });
     }
@@ -135,28 +140,37 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
                 .sorted()
                 .collect(Collectors.toList());
         entityNameLookup.setOptionsList(entityNameList);
+    }
 
-        bpmProfileDs.addItemPropertyChangeListener(e -> {
-            switch (e.getProperty()) {
-                case "entityName":
-                    //refresh properties list when another entity is selected
-                    initLimitAmountFieldNameLookup();
-                    break;
-                case "procDefinition":
-                    //clean notifications when the new ProcDefinition is selected
-                    reloadUserTaskIds((ProcDefinition) e.getValue());
-                    Collection<UUID> itemIds = bpmProfileNotificationsDs.getItemIds();
-                    for (UUID itemId : itemIds) {
-                        BpmProfileNotification item = bpmProfileNotificationsDs.getItem(itemId);
-                        bpmProfileNotificationsDs.removeItem(item);
-                    }
-                    break;
-            }
-            if ("entityName".equals(e.getProperty())) {
+    @Subscribe(id = "bpmProfileDc", target = Target.DATA_CONTAINER)
+    protected void onBpmProfileDcItemPropertyChange(InstanceContainer.ItemPropertyChangeEvent<BpmProfile> event) {
+        switch (event.getProperty()) {
+            case "entityName":
                 //refresh properties list when another entity is selected
                 initLimitAmountFieldNameLookup();
-            }
-        });
+                break;
+            case "procDefinition":
+                //clean notifications when the new ProcDefinition is selected
+                reloadUserTaskIds((ProcDefinition) event.getValue());
+                reloadProcRolesDc((ProcDefinition) event.getValue());
+
+                //todo
+//                bpmProfileActorsDc.getMutableItems().clear();
+//                bpmProfileNotificationsDc.getMutableItems().clear();
+                break;
+        }
+    }
+
+    @Subscribe(id = "bpmProfileActorsDc", target = Target.DATA_CONTAINER)
+    protected void onBpmProfileActorsDcItemPropertyChange(InstanceContainer.ItemPropertyChangeEvent<BpmProfileActor> event) {
+        if ("delegationTargetGroup".equals(event.getProperty())) {
+            bpmProfileActorsTable.repaint();
+        }
+    }
+
+    protected void reloadProcRolesDc(ProcDefinition procDefinition) {
+        procRolesDl.setParameter("procDefinition", procDefinition);
+        procRolesDl.load();
     }
 
     private void reloadUserTaskIds(ProcDefinition procDefinition) {
@@ -168,7 +182,7 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
     }
 
     private void initLimitAmountFieldNameLookup() {
-        String entityName = getItem().getEntityName();
+        String entityName = bpmProfileDc.getItem().getEntityName();
         if (!Strings.isNullOrEmpty(entityName)) {
             MetaClass metaClass = metadata.getClassNN(entityName);
             List<String> bigDecimalPropertyNames = metaClass.getProperties().stream()
@@ -182,30 +196,33 @@ public class BpmProfileEdit extends AbstractEditor<BpmProfile> {
         }
     }
 
-    public void onAddProfileActor(Component source) {
-        if (okToCreate()) {
-            BpmProfileActor bpmProfileActor = metadata.create(BpmProfileActor.class);
-            bpmProfileActor.setBpmProfile(getItem());
-            bpmProfileActorsDs.addItem(bpmProfileActor);
+    @Subscribe("bpmProfileActorsTable.create")
+    protected void onBpmProfileActorsTableCreate(Action.ActionPerformedEvent event) {
+        if (bpmProfileDc.getItem().getProcDefinition() != null) {
+            BpmProfileActor bpmProfileActor = dataContext.merge(metadata.create(BpmProfileActor.class));
+            bpmProfileActor.setBpmProfile(bpmProfileDc.getItem());
+            bpmProfileActorsDc.getMutableItems().add(bpmProfileActor);
             bpmProfileActorsTable.scrollTo(bpmProfileActor);
             bpmProfileActorsTable.setSelected(bpmProfileActor);
         } else {
-            showNotification("Please update the required data before this action", NotificationType.HUMANIZED);
+            notifications.create(Notifications.NotificationType.WARNING)
+                    .withCaption("Please select the ProcessDefinition first")
+                    .show();
         }
     }
 
-    public void onAddProfileNotification() {
-        BpmProfileNotification bpmProfileNotification = metadata.create(BpmProfileNotification.class);
-        bpmProfileNotification.setBpmProfile(getItem());
-        bpmProfileNotificationsDs.addItem(bpmProfileNotification);
+    @Subscribe("bpmProfileNotificationsTable.create")
+    protected void onBpmProfileNotificationsTableCreate(Action.ActionPerformedEvent event) {
+        if (bpmProfileDc.getItem().getProcDefinition() != null) {
+            BpmProfileNotification bpmProfileNotification = dataContext.merge(metadata.create(BpmProfileNotification.class));
+            bpmProfileNotification.setBpmProfile(bpmProfileDc.getItem());
+            bpmProfileNotificationsDc.getMutableItems().add(bpmProfileNotification);
+        } else {
+            notifications.create(Notifications.NotificationType.WARNING)
+                    .withCaption("Please select the ProcessDefinition first")
+                    .show();
+        }
     }
 
-    private boolean okToCreate() {
-        boolean ok = true;
-        if (getItem().getProcDefinition() == null) {
-            ok = false;
-            showNotification("Please select the ProcessDefinition first", NotificationType.HUMANIZED);
-        }
-        return ok;
-    }
+
 }

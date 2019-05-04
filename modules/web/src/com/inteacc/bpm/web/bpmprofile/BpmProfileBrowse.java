@@ -1,6 +1,11 @@
 package com.inteacc.bpm.web.bpmprofile;
 
-import com.haulmont.cuba.gui.components.AbstractLookup;
+import com.haulmont.cuba.gui.screen.*;
+import com.inteacc.bpm.entity.BpmProfile;
 
-public class BpmProfileBrowse extends AbstractLookup {
+@UiController("bp_BpmProfile.browse")
+@UiDescriptor("bpm-profile-browse.xml")
+@LookupComponent("bpmProfilesTable")
+@LoadDataBeforeShow
+public class BpmProfileBrowse extends StandardLookup<BpmProfile> {
 }

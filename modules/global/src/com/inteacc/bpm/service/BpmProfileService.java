@@ -2,6 +2,7 @@ package com.inteacc.bpm.service;
 
 import com.haulmont.bpm.entity.ProcInstance;
 import com.haulmont.cuba.core.entity.Entity;
+import com.inteacc.bpm.entity.BpmProfile;
 
 import javax.annotation.Nullable;
 
@@ -18,4 +19,7 @@ public interface BpmProfileService {
      */
     @Nullable
     ProcInstance startProcessUsingBpmProfile(Entity entity);
+
+    @Nullable
+    BpmProfile findBpmProfileByEntityName(String entityName);
 }

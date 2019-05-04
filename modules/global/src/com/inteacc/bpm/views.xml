@@ -23,15 +23,15 @@
             <property name="emailTemplate" view="_minimal"/>
         </property>
     </view>
-    <view entity="bp$BpmProfileActor" name="bpmProfileActor-edit" extends="_local">
+    <view entity="bp_BpmProfileActor" name="bpmProfileActor-edit" extends="_local">
         <property name="procRole" view="_minimal"/>
         <property name="user" view="_minimal"/>
         <property name="secRole" view="_minimal"/>
     </view>
-    <view entity="bp$BpmProfile" name="bpmProfile-browse" extends="_local">
+    <view entity="bp_BpmProfile" name="bpmProfile-browse" extends="_local">
         <property name="procDefinition" view="_minimal"/>
     </view>
-    <view entity="bp$BpmProfileNotification" name="bpmProfileNotification-process-send" extends="_local">
+    <view entity="bp_BpmProfileNotification" name="bpmProfileNotification-process-send" extends="_local">
         <property name="emailTemplate" view="_minimal"/>
     </view>
     <view class="com.haulmont.bpm.entity.ProcDefinition" name="bpmProfile-edit" extends="_minimal">

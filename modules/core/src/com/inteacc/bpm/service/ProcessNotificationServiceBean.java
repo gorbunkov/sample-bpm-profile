@@ -2,11 +2,9 @@ package com.inteacc.bpm.service;
 
 import com.google.common.base.Strings;
 import com.haulmont.addon.emailtemplates.core.EmailTemplatesAPI;
-import com.haulmont.addon.emailtemplates.dto.ExtendedEmailInfo;
 import com.haulmont.addon.emailtemplates.entity.EmailTemplate;
 import com.haulmont.addon.emailtemplates.exceptions.ReportParameterTypeChangedException;
 import com.haulmont.addon.emailtemplates.exceptions.TemplateNotFoundException;
-import com.haulmont.addon.emailtemplates.service.EmailService;
 import com.haulmont.chile.core.model.MetaClass;
 import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.core.global.*;
@@ -36,9 +34,6 @@ public class ProcessNotificationServiceBean implements ProcessNotificationServic
     protected EmailTemplatesAPI emailTemplatesAPI;
 
     @Inject
-    protected EmailService emailService;
-
-    @Inject
     protected ViewRepository viewRepository;
 
     @Inject
@@ -50,7 +45,7 @@ public class ProcessNotificationServiceBean implements ProcessNotificationServic
     @Override
     public void sendNotificationByBpmProfile(String entityName, UUID entityId, String processTaskKey, UUID userId) {
         List<BpmProfileNotification> notifications = dataManager.load(BpmProfileNotification.class)
-                .query("select n from bp$BpmProfileNotification n where n.bpmProfile.entityName = :entityName and n.taskId = :taskId")
+                .query("select n from bp_BpmProfileNotification n where n.bpmProfile.entityName = :entityName and n.taskId = :taskId")
                 .parameter("entityName", entityName)
                 .parameter("taskId", processTaskKey)
                 .view("bpmProfileNotification-process-send")
@@ -78,7 +73,6 @@ public class ProcessNotificationServiceBean implements ProcessNotificationServic
                 emailTemplateParams.put("entity", entity);
                 emailTemplateParams.put("user", user);
                 emailTemplateParams.put("editorLink", buildEditorLink(entityName, entityId));
-                ExtendedEmailInfo emailInfo = null;
                 try {
                     emailTemplatesAPI.buildFromTemplate(emailTemplate.getCode())
                             .addTo(user.getEmail())

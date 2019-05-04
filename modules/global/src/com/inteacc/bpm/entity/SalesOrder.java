@@ -12,7 +12,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 
 @NamePattern("%s|docNo")
 @Table(name = "BP_SALES_ORDER")
-@Entity(name = "bp$SalesOrder")
+@Entity(name = "bp_SalesOrder")
 public class SalesOrder extends StandardEntity {
     private static final long serialVersionUID = 373270466826645186L;
 

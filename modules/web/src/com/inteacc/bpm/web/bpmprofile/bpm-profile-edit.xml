@@ -1,87 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        class="com.inteacc.bpm.web.bpmprofile.BpmProfileEdit"
-        datasource="bpmProfileDs"
-        focusComponent="fieldGroup"
+        focusComponent="bpmProfileForm"
         messagesPack="com.inteacc.bpm.web.bpmprofile">
-    <dsContext>
-        <datasource id="bpmProfileDs"
-                    class="com.inteacc.bpm.entity.BpmProfile"
+    <data>
+        <instance id="bpmProfileDc"
+                  class="com.inteacc.bpm.entity.BpmProfile"
+                  view="bpmProfile-edit">
+            <loader/>
+            <collection id="bpmProfileActorsDc" property="bpmProfileActors"/>
+            <collection id="bpmProfileNotificationsDc" property="bpmProfileNotifications"/>
+        </instance>
+        <collection id="procDefinitionsDc"
+                    class="com.haulmont.bpm.entity.ProcDefinition"
                     view="bpmProfile-edit">
-            <collectionDatasource id="bpmProfileActorsDs"
-                                  property="bpmProfileActors"/>
-            <collectionDatasource id="bpmProfileNotificationsDs" property="bpmProfileNotifications"/>
-        </datasource>
-        <collectionDatasource id="procDefinitionsDs"
-                              class="com.haulmont.bpm.entity.ProcDefinition"
-                              view="bpmProfile-edit">
-            <query>
-                <![CDATA[select e from bpm$ProcDefinition e]]>
-            </query>
-        </collectionDatasource>
-        <collectionDatasource id="usersDs"
-                              class="com.haulmont.cuba.security.entity.User">
-            <query>
-                <![CDATA[select e from sec$User e]]>
-            </query>
-        </collectionDatasource>
-        <collectionDatasource id="extRolesDs"
-                              class="com.inteacc.bpm.entity.ExtRole">
-            <query>
-                <![CDATA[select e from bp$ExtRole e]]>
-            </query>
-        </collectionDatasource>
-        <collectionDatasource id="extProcRolesDs"
-                              class="com.inteacc.bpm.entity.ExtProcRole">
-            <query>
-                <![CDATA[select e from bp$ExtProcRole e where e.procDefinition.id = :ds$procDefinitionsDs.id]]>
-            </query>
-        </collectionDatasource>
-        <collectionDatasource id="emailTemplatesOptionsDs" class="com.haulmont.addon.emailtemplates.entity.EmailTemplate" view="_minimal">
-            <query><![CDATA[select et from emailtemplates$EmailTemplate et order by et.name]]></query>
-        </collectionDatasource>
-    </dsContext>
+            <loader>
+                <query>
+                    <![CDATA[select e from bpm$ProcDefinition e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="usersDc"
+                    class="com.haulmont.cuba.security.entity.User">
+            <loader>
+                <query>
+                    <![CDATA[select e from sec$User e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="rolesDc"
+                    class="com.haulmont.cuba.security.entity.Role">
+            <loader>
+                <query>
+                    <![CDATA[select e from bp$ExtRole e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="procRolesDc"
+                    class="com.haulmont.bpm.entity.ProcRole">
+            <loader id="procRolesDl">
+                <query>
+                    <![CDATA[select e from bp$ExtProcRole e where e.procDefinition = :procDefinition]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="emailTemplatesOptionsDc" class="com.haulmont.addon.emailtemplates.entity.EmailTemplate" view="_minimal">
+            <loader>
+                <query><![CDATA[select et from emailtemplates$EmailTemplate et order by et.name]]></query>
+            </loader>
+        </collection>
+    </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="windowActions"
+    <layout expand="editActions"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="bpmProfileDs">
-            <column width="250px">
-                <field optionsDatasource="procDefinitionsDs"
-                       property="procDefinition"/>
-                <field property="description"/>
-                <field property="entityName">
-                    <lookupField id="entityNameLookup" width="100%" datasource="bpmProfileDs" property="entityName"/>
-                </field>
-                <field property="limitAmountFieldName">
-                    <lookupField id="limitAmountFieldNameLookup" width="100%" datasource="bpmProfileDs" property="limitAmountFieldName"/>
-                </field>
-                <field property="adHocUserSelection"/>
+        <form id="bpmProfileForm" dataContainer="bpmProfileDc" width="500px">
+            <column width="100%">
+                <lookupField id="processDefinitionLookup" property="procDefinition" optionsContainer="procDefinitionsDc"/>
+                <textField id="descriptionField" property="description"/>
+                <lookupField id="entityNameLookup" property="entityName"/>
+                <lookupField id="limitAmountFieldNameLookup" property="limitAmountFieldName"/>
+                <checkBox id="adHocUserSelectionCb" property="adHocUserSelection"/>
             </column>
-        </fieldGroup>
+        </form>
         <groupBox id="bpmProfileActorsBox"
                   caption="msg://com.inteacc.bpm.entity/BpmProfile.bpmProfileActors">
             <table id="bpmProfileActorsTable"
+                   dataContainer="bpmProfileActorsDc"
                    editable="true"
                    height="200px"
                    width="100%">
                 <actions>
-                    <action id="create" invoke="onAddProfileActor" icon="icons/create.png" caption="mainMsg://actions.Create"/>
-                    <action id="remove"/>
+                    <action id="create" type="create"/>
+                    <action id="remove" type="remove"/>
                 </actions>
                 <columns>
                     <column id="procRole"
                             editable="true"
-                            optionsDatasource="extProcRolesDs"/>
+                            optionsContainer="procRolesDc"/>
                     <column id="delegationTargetGroup" editable="true"/>
                     <column id="secRole"/>
                     <column id="user"/>
                     <column id="limitAmount"
                             editable="true"/>
                 </columns>
-                <rows datasource="bpmProfileActorsDs"/>
                 <buttonsPanel>
                     <button action="bpmProfileActorsTable.create"/>
                     <button action="bpmProfileActorsTable.remove"/>
@@ -91,25 +93,27 @@
         <groupBox id="bpmProfileNotificationsBox"
                   caption="msg://com.inteacc.bpm.entity/BpmProfile.bpmProfileNotifications">
             <table id="bpmProfileNotificationsTable"
+                   dataContainer="bpmProfileNotificationsDc"
                    editable="true"
                    height="200px"
                    width="100%">
                 <actions>
-                    <action id="create" invoke="onAddProfileNotification" icon="icons/create.png" caption="mainMsg://actions.Create"/>
-                    <action id="remove"/>
+                    <action id="create" type="create"/>
+                    <action id="remove" type="remove"/>
                 </actions>
                 <columns>
                     <column id="taskId"/>
-                    <column id="emailTemplate" editable="true" optionsDatasource="emailTemplatesOptionsDs"/>
+                    <column id="emailTemplate" editable="true" optionsContainer="emailTemplatesOptionsDc"/>
                 </columns>
-                <rows datasource="bpmProfileNotificationsDs"/>
                 <buttonsPanel>
                     <button action="bpmProfileNotificationsTable.create"/>
                     <button action="bpmProfileNotificationsTable.remove"/>
                 </buttonsPanel>
             </table>
         </groupBox>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
     </layout>
 </window>

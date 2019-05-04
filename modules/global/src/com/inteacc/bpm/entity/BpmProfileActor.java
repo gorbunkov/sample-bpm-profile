@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Table(name = "BP_BPM_PROFILE_ACTOR")
-@Entity(name = "bp$BpmProfileActor")
+@Entity(name = "bp_BpmProfileActor")
 public class BpmProfileActor extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PROC_ROLE_ID")
