@@ -1,14 +1,11 @@
 package com.inteacc.bpm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.StandardEntity;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import com.haulmont.cuba.core.entity.StandardEntity;
-import com.haulmont.chile.core.annotations.NamePattern;
 
 @NamePattern("%s|docNo")
 @Table(name = "BP_SALES_ORDER")
@@ -16,7 +13,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 public class SalesOrder extends StandardEntity {
     private static final long serialVersionUID = 373270466826645186L;
 
-    @Column(name = "DOC_NO")
+    @Column(name = "DOC_NO", nullable = false)
     protected Integer docNo;
 
     @Temporal(TemporalType.DATE)

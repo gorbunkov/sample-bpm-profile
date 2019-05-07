@@ -29,7 +29,7 @@ create table BP_SALES_ORDER (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    DOC_NO integer,
+    DOC_NO integer not null,
     DOC_DATE date,
     CUSTOMER varchar(255),
     AMOUNT decimal(19, 2),

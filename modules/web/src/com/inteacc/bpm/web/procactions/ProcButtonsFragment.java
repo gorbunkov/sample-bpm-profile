@@ -10,12 +10,10 @@ import com.haulmont.bpm.service.ProcessFormService;
 import com.haulmont.cuba.core.entity.Entity;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.UiComponents;
-import com.haulmont.cuba.gui.components.Action;
-import com.haulmont.cuba.gui.components.Button;
-import com.haulmont.cuba.gui.components.Component;
-import com.haulmont.cuba.gui.components.VBoxLayout;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.components.actions.BaseAction;
 import com.haulmont.cuba.gui.screen.ScreenFragment;
+import com.haulmont.cuba.gui.screen.ScreenValidation;
 import com.haulmont.cuba.gui.screen.UiController;
 import com.haulmont.cuba.gui.screen.UiDescriptor;
 import com.inteacc.bpm.entity.BpmProfile;
@@ -49,6 +47,9 @@ public class ProcButtonsFragment extends ScreenFragment {
 
     @Inject
     protected Notifications notifications;
+
+    @Inject
+    protected ScreenValidation screenValidation;
 
     /**
      * The method initializes the process buttons layout.
@@ -94,6 +95,7 @@ public class ProcButtonsFragment extends ScreenFragment {
         startProcessBtn.setAction(new BaseAction("startProcess") {
             @Override
             public void actionPerform(Component component) {
+                if (!validateHostScreen()) return;
                 getScreenData().getDataContext().commit();
                 bpmProfileService.startProcessUsingBpmProfile(entity);
                 notifications.create(Notifications.NotificationType.HUMANIZED)
@@ -125,6 +127,7 @@ public class ProcButtonsFragment extends ScreenFragment {
         for (CompleteProcTaskAction completeProcTaskAction : completeProcTaskActions) {
             Button actionBtn = uiComponents.create(Button.class);
             actionBtn.setWidth("100%");
+            completeProcTaskAction.addBeforeActionPredicate(this::validateHostScreen);
             completeProcTaskAction.addAfterActionListener(() -> {
                 initLayout(entity);
                 getScreenData().getDataContext().commit();
@@ -143,5 +146,18 @@ public class ProcButtonsFragment extends ScreenFragment {
         if (commitCloseAction != null) {
             commitCloseAction.setEnabled(false);
         }
+    }
+
+    /**
+     * Checks that all required UI components in the host screen are filled. If no, then validation error messages are displayed.
+     * @return true if there are no validation errors, false if there are validation errors.
+     */
+    private boolean validateHostScreen() {
+        ValidationErrors validationErrors = screenValidation.validateUiComponents(getHostScreen().getWindow());
+        if (!validationErrors.isEmpty()) {
+            screenValidation.showValidationErrors(getHostScreen(), validationErrors);
+            return false;
+        }
+        return true;
     }
 }
